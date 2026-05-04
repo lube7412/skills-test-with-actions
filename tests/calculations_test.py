@@ -70,15 +70,12 @@ def test_get_nth_fibonacci_ten():
     assert result == 55
 
     def test_area_of_circle_negative_radius():
-    def test_area_of_circle_two():
-    """Test with radius 2."""
-    radius = 2
-    result = area_of_circle(radius)
-    assert abs(result - 12.56636) < 1e-5
+    """Test with a negative radius."""
+    with pytest.raises(ValueError):
+        area_of_circle(-1)
 
 
-def test_get_nth_fibonacci_three():
-    """Test with n=3."""
-    n = 3
-    result = get_nth_fibonacci(n)
-    assert result == 2
+def test_get_nth_fibonacci_negative():
+    """Test with negative n."""
+    with pytest.raises(ValueError):
+        get_nth_fibonacci(-1)
